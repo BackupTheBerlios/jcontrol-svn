@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcontrol version="1.0">
+  <workspace name="CalendarDemo">
+    <properties>
+      <properties node="java">
+        <entry key="java.column1" value="47"/>
+        <entry key="java.column0" value="135"/>
+        <entry key="expandedItems">
+          <value>src</value>
+          <value>src//(Standardpaket)</value>
+        </entry>
+        <entry key="selectedItems">
+          <value>src//(Standardpaket)//CalendarDemo</value>
+        </entry>
+        <entry key="java.column2" value="79"/>
+        <entry key="java.column3" value="106"/>
+      </properties>
+    </properties>
+  </workspace>
+</jcontrol>
