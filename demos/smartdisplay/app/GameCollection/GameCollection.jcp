@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcontrol version="1.0">
+  <project name="GameCollection">
+    <profile name="JControl/SmartDisplay+" revision="2.3.0" build="20051207"/>
+    <workspace>
+      <file name="GameCollection.jcw"/>
+    </workspace>
+    <libraries/>
+    <main class="jcontrol.demos.games.GameCollection"/>
+    <files>
+      <layer domain="java">
+        <dir name="src/"/>
+        <dir name="rsc/"/>
+      </layer>
+    </files>
+  </project>
+</jcontrol>

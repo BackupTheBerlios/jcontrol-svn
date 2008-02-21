@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcontrol version="1.0">
+  <project name="RelayExample">
+    <profile name="JControl/SmartDisplay+" revision="2.3.0" build="20051207"/>
+    <workspace>
+      <file name="RelayExample.jcw"/>
+    </workspace>
+    <libraries/>
+    <files>
+      <layer domain="java">
+        <file dir="src/" name="RelayExample.java"/>
+      </layer>
+    </files>
+  </project>
+</jcontrol>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcontrol version="1.0">
+  <project name="KeyboardExample">
+    <profile name="JControl/SmartDisplay+" revision="2.3.0" build="20051207"/>
+    <description></description>
+    <workspace>
+      <file name="KeyboardExample.jcw"/>
+    </workspace>
+    <libraries></libraries>
+    <files>
+      <layer domain="java">
+        <file dir="src/jcontrol/demos/io/" name="KeyboardExample.java"/>
+      </layer>
+    </files>
+  </project>
+</jcontrol>

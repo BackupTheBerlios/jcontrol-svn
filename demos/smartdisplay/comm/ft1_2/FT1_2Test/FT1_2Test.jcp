@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcontrol version="1.0">
+  <project name="FT1_2Test">
+    <profile name="JControl/SmartDisplay+" revision="2.3.0" build="20051207"/>
+    <workspace>
+      <file name="FT1_2Test.jcw"/>
+    </workspace>
+    <files>
+      <layer domain="java">
+        <file dir="src/" name="FT1_2Test.java"/>
+      </layer>
+    </files>
+  </project>
+</jcontrol>

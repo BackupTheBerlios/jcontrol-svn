@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcontrol version="1.0">
+  <project name="VoleMenuDemo">
+    <profile name="JControl/SmartDisplay+" revision="2.3.0" build="20051207"/>
+    <workspace>
+      <file name="VoleMenuDemo.jcw"/>
+    </workspace>
+    <libraries></libraries>
+    <files>
+      <layer domain="java">
+        <file dir="rsc/" name="menuimage9.jcif"/>
+        <file dir="rsc/" name="menuimage8.jcif"/>
+        <file dir="rsc/" name="menuimage7.jcif"/>
+        <file dir="rsc/" name="menuimage6.jcif"/>
+        <file dir="rsc/" name="menuimage5.jcif"/>
+        <file dir="rsc/" name="menuimage4.jcif"/>
+        <file dir="rsc/" name="menuimage3.jcif"/>
+        <file dir="rsc/" name="menuimage2.jcif"/>
+        <file dir="rsc/" name="menuimage1.jcif"/>
+        <file dir="rsc/" name="menu3.jcif"/>
+        <file dir="rsc/" name="menu2.jcif"/>
+        <file dir="rsc/" name="menu1.jcif"/>
+        <file dir="rsc/" name="lochmaske.jcif"/>
+        <file dir="rsc/" name="arial14.jcfd"/>
+        <file dir="src/" name="VoleMenuDemo.java"/>
+      </layer>
+    </files>
+  </project>
+</jcontrol>

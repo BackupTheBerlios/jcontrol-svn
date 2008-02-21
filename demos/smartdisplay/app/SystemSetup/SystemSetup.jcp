@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcontrol version="1.0">
+  <project name="SystemSetup">
+    <profile name="JControl/SmartDisplay+" revision="2.3.0" build="20051207"/>
+    <workspace>
+      <file name="SystemSetup.jcw"/>
+    </workspace>
+    <main class="jcontrol.system.setup.SystemSetup"/>
+    <files>
+      <layer domain="java">
+        <file dir="rsc/" name="systemsetup.jcif"/>
+        <file dir="rsc/" name="small_logo.jcif"/>
+        <file dir="rsc/" name="jcontrol_s-w_klein.jcif"/>
+        <file dir="rsc/" name="jcontrol_splash.jcif"/>
+        <file dir="rsc/" name="chooser.jcif"/>
+        <file dir="src/jcontrol/system/" name="ErrorHandler.java"/>
+        <file dir="src/jcontrol/system/setup/" name="SystemSetup.java"/>
+        <file dir="src/jcontrol/system/setup/" name="SetupTime.java"/>
+        <file dir="src/jcontrol/system/setup/" name="SetupStandbyTime.java"/>
+        <file dir="src/jcontrol/system/setup/" name="SetupSound.java"/>
+        <file dir="src/jcontrol/system/setup/" name="SetupExplorer.java"/>
+        <file dir="src/jcontrol/system/setup/" name="SetupContrast.java"/>
+        <file dir="src/jcontrol/system/setup/" name="SetupBootDevice.java"/>
+        <file dir="src/jcontrol/system/setup/" name="SetupBatt.java"/>
+        <file dir="src/jcontrol/demos/misc/" name="VisitCard_JControl.java"/>
+      </layer>
+    </files>
+  </project>
+</jcontrol>

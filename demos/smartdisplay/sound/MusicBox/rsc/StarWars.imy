@@ -1,0 +1,7 @@
+BEGIN:IMELODY
+VERSION:1.2
+FORMAT:CLASS1.0
+NAME:StarWars
+COMPOSER:Lucas Arts
+MELODY:&b5&b5&b5&b5&b4f4.*5&e4.*5f4*5&e4.&b4.&b4f4*5&e4.*5f3;*5&e3;&b3;&b3;f3;*5&e3;*5f4.&b5&b4&b4r4f3f3f3&b1*5f1(*5&e4*5d4.*5c4.*5&b1*5f2@1)*5&e3;*5d3;*5&e3;*5c1.f5f5f4&b1*5f1*5&e3;*5d3;*5c3;*5&b1*5f2*5&e3;*5d3;*5c3;*5&b1*5f2*5&e3;*5d3;*5&e3;*5c1.f2f4g1*5&e3*5d3*5c3&b3.&b4*5c4*5d3*5c3.g4a2f3.f4g2.g4*5&e4*5&e3*5d4*5c3&b4*5f4*5f2*5c4*5c1.f4g2.g4*5&e3.*5d4*5c3&b3.&b4*5c4*5d3*5c3.g4a2*5f3.*5f4*5&b3.*5#g4*5#f3.*5f4*5&e3.*5&d4*5c3.&b4*5f1r2
+END:IMELODY
