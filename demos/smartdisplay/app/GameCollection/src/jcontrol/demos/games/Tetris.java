@@ -1,6 +1,6 @@
 /*
  * Tetris.java
- * Copyright (C) 2000-2007 DOMOLOGIC Home Automation GmbH
+ * Copyright (C) 2000-2008 DOMOLOGIC Home Automation GmbH
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -32,7 +32,7 @@ import jcontrol.lang.ThreadExt;
  * kill at once, the more points you will get.
  *
  * @author Marcus Timmermann
- * @version 2.0
+ * @version $Revision$
  */
 public class Tetris {
     private static final String[] BLOCK = new String[]{"\u080E\u0E0F"};

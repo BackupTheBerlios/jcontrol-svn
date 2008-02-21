@@ -1,6 +1,5 @@
 /*
  * Breakout.java
- * Copyright (C) 2000-2007 DOMOLOGIC Home Automation GmbH
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -21,6 +20,7 @@
 package jcontrol.demos.games;
 
 import java.io.IOException;
+
 import jcontrol.io.Display;
 import jcontrol.io.Keyboard;
 import jcontrol.io.Resource;
@@ -33,7 +33,7 @@ import jcontrol.lang.ThreadExt;
  * will get into the next level.
  *
  * @author Marcus Timmermann
- * @version 1.0
+ * @version $Revision$
  */
 public class Breakout {
 

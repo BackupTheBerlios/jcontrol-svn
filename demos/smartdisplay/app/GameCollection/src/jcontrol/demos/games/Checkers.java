@@ -1,6 +1,6 @@
 /*
  * Checkers.java
- * Copyright (C) 2000-2007 DOMOLOGIC Home Automation GmbH
+ * Copyright (C) 2000-2008 DOMOLOGIC Home Automation GmbH
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -20,16 +20,16 @@
 
 package jcontrol.demos.games;
 
+import jcontrol.io.Backlight;
 import jcontrol.io.Display;
 import jcontrol.io.Keyboard;
-import jcontrol.io.Backlight;
 
 /**
  * An implementation of the classical board game Draughts or Checkers. Play against
  * a dim witted computer opponent and win!
  *
  * @author Thomas Röbbenack
- * @date 28.12.04 17:17
+ * @version $Revision$
  */
 public class Checkers {
 
@@ -493,7 +493,7 @@ class Human extends AbstractPlayer {
    	            	}
    	            	//Markieren des 1. Steines
    	            	if (markX==-1) {
-	   	            	//schauen ob dies überhaupt erlaubt
+	   	            	//schauen ob dies ï¿½berhaupt erlaubt
 	   	            	if (m_board.getFields()[x][y]==Board.EMPTY) {
 	   	            		m_board.drawText("no stone?",2);
 	   	            		break;
@@ -512,7 +512,7 @@ class Human extends AbstractPlayer {
                 		markY=y;               			
                 	} else {
                 	//Auswahl komplett
-                		//schauen ob dies überhaupt erlaubt
+                		//schauen ob dies ï¿½berhaupt erlaubt
 	   	            	if (m_board.getFields()[x][y]!=Board.EMPTY) {
 	   	            		m_board.drawText("not empty!",2);
 	   	            		try { jcontrol.lang.ThreadExt.sleep(1000); } catch (InterruptedException e) {}
@@ -522,7 +522,7 @@ class Human extends AbstractPlayer {
                 			m_board.drawText(wait,2);
 	   	            		break;
 	   	            	}
-	   	            	//schauen ob dies überhaupt erlaubt (anhand der Regeln)
+	   	            	//schauen ob dies ï¿½berhaupt erlaubt (anhand der Regeln)
 	   	            	if (!m_rules.isMoveOK(markX,markY,x,y)) {
 	   	            		m_board.drawText("incorrect move!",2);
 	   	            		try { jcontrol.lang.ThreadExt.sleep(1000); } catch (InterruptedException e) {}
@@ -692,7 +692,7 @@ class Board {
     }
     	
  	public final void drawBoard() {
-		//Überschrift
+		//ï¿½berschrift
 		{
 			String head = "CHECKERS";
 			m_lcd.drawString(head,70,0);

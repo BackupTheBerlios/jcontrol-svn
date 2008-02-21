@@ -1,6 +1,6 @@
 /*
  * Minesweeper.java
- * Copyright (C) 2000-2007 DOMOLOGIC Home Automation GmbH
+ * Copyright (C) 2000-2008 DOMOLOGIC Home Automation GmbH
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -37,7 +37,7 @@ import jcontrol.system.Management;
  * Good luck.
  *
  * @author Marcus Timmermann
- * @version 2.0
+ * @version $Revision$
  */
 public class Minesweeper {
     private static String[]  NUMBERS_IMG;
