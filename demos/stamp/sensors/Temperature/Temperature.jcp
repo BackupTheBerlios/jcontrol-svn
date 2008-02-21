@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcontrol version="1.0">
+  <project name="Temperature">
+    <profile name="JControl/Stamp+" revision="2.3.0" build="20051207"/>
+    <workspace>
+      <file name="Temperature.jcw"/>
+    </workspace>
+    <libraries></libraries>
+    <main class="LM75Test"/>
+    <files>
+      <layer domain="java">
+        <dir name="src/"/>
+      </layer>
+    </files>
+  </project>
+</jcontrol>

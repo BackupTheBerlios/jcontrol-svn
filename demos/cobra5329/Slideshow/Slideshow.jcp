@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcontrol version="1.0">
+  <project name="Slideshow">
+    <profile name="JControl/Cobra5329/EBV" revision="4.7.0" build="20070830"/>
+    <info>
+      <company>
+        <name><![CDATA[Domologic GmbH]]></name>
+      </company>
+    </info>
+    <description>
+      <locale language="en"><![CDATA[Slideshow]]></locale>
+    </description>
+    <workspace>
+      <file name="Slideshow.jcw"/>
+    </workspace>
+    <libraries/>
+    <files>
+      <layer domain="java">
+        <dir name="src/"/>
+        <file dir="rsc/" name="dragonfly1.jcif"/>
+        <file dir="rsc/" name="dragonlady.jcif"/>
+        <file dir="rsc/" name="mantis.jcif"/>
+        <file dir="rsc/" name="spider.jcif"/>
+      </layer>
+    </files>
+  </project>
+</jcontrol>

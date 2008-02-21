@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcontrol version="1.0">
+  <project name="TSL2561">
+    <profile name="JControl/Stamp+" revision="2.3.0" build="20051207"/>
+    <workspace>
+      <file name="TSL2561.jcw"/>
+    </workspace>
+    <libraries></libraries>
+    <files>
+      <layer domain="java">
+        <dir name="src/"/>
+      </layer>
+    </files>
+  </project>
+</jcontrol>

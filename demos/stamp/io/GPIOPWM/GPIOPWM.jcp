@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcontrol version="1.0">
+  <project name="GPIOPWM">
+    <profile name="JControl/Stamp+" revision="2.3.0" build="20051207"/>
+    <description>
+    </description>
+    <workspace>
+      <file name="GPIOPWM.jcw"/>
+    </workspace>
+    <libraries></libraries>
+    <files>
+      <layer domain="java">
+        <dir name="src/"/>
+      </layer>
+    </files>
+  </project>
+</jcontrol>

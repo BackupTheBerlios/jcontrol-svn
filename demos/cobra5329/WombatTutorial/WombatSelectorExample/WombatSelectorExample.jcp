@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcontrol version="1.0">
+  <project name="WombatSelectorDemo">
+    <profile name="JControl/Cobra5329/EBV" revision="4.7.0" build="20070830"/>
+    <info>
+      <company>
+        <name><![CDATA[Domologic GmbH]]></name>
+      </company>
+    </info>
+    <description>
+      <locale language="en"><![CDATA[WombatSelectorDemo]]></locale>
+    </description>
+    <workspace>
+      <file name="WombatSelectorExample.jcw"/>
+    </workspace>
+    <libraries/>
+    <files>
+      <layer domain="java">
+        <dir name="src/"/>
+        <dir name="rsc/"/>
+      </layer>
+    </files>
+  </project>
+</jcontrol>

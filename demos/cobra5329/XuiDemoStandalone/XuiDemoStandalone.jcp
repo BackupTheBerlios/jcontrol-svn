@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcontrol version="1.0">
+  <project name="XuiDemoStandalone">
+    <profile name="JControl/Cobra5329/EBV" revision="4.7.0" build="20070830"/>
+    <info>
+      <company>
+        <name><![CDATA[Domologic GmbH]]></name>
+      </company>
+    </info>
+    <description>
+      <locale language="en"><![CDATA[XuiDemoStandalone]]></locale>
+    </description>
+    <workspace>
+      <file name="XuiDemoStandalone.jcw"/>
+    </workspace>
+    <libraries>
+      <library name="jcontrol_ui_xui_demo_20070830.jar" dir="lib/"/>
+    </libraries>
+    <files>
+      <layer domain="java">
+        <dir name="src/"/>
+        <dir name="rsc/"/>
+      </layer>
+    </files>
+  </project>
+</jcontrol>

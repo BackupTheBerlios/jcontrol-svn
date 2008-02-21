@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcontrol version="1.0">
+  <project name="LightAndTemperature">
+    <profile name="JControl/Stamp+" revision="2.3.0" build="20051207"/>
+    <workspace>
+      <file name="LightTemperatureDemo.jcw"/>
+    </workspace>
+    <libraries/>
+    <files>
+      <layer domain="java">
+        <file dir="src/" name="LightTemperatureDemo.java"/>
+        <file dir="src/" name="TMP75.java"/>
+        <file dir="src/" name="TSL2561LuxConversion.java"/>
+        <file dir="src/" name="TSL2561.java"/>
+        <file dir="src/" name="LightTemperatureIntro.java"/>
+      </layer>
+    </files>
+  </project>
+</jcontrol>
