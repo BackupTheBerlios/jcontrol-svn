@@ -1,0 +1,80 @@
+#!/bin/bash
+
+REQUIRED_VERSION=1.5
+JCONTROL_HOME="`dirname $0`/.."
+APPLICATION_PATH="./plugins/IDE/"
+APPLICATION_NAME="`basename $0`"
+
+cd $JCONTROL_HOME
+
+# ----[ SEARCHING FOR AN ADEQUATE JAVA VM ]------------------------------------------
+
+# Transform the required version string into a number that can be used in comparisons
+REQUIRED_VERSION=`echo $REQUIRED_VERSION | sed -e 's;\.;0;g'`
+FOUND_JAVA_HOME=""
+
+# Check JCONTROL_HOME directory to see if Java runtime is installed
+if [ -x ./jre/linux/bin/java ]; then
+    JAVA_EXE=./jre/linux/bin/java
+    $JAVA_EXE -version 2> tmp.ver
+    VERSION=`cat tmp.ver | grep "java version" | awk '{ print substr($3, 2, length($3)-2); }'`
+    rm tmp.ver
+    VERSION=`echo $VERSION | awk '{ print substr($1, 1, 3); }' | sed -e 's;\.;0;g'`
+    if [ $VERSION ]; then
+        if [ $VERSION -ge $REQUIRED_VERSION ]; then
+        FOUND_JAVA_HOME=`echo $JAVA_EXE | awk '{ print substr($1, 1, length($1)-9); }'`
+        fi
+    fi
+fi
+
+
+# Check JAVA_HOME directory to see if Java version is adequate
+if [ "$FOUND_JAVA_HOME" == "" -a "$JAVA_HOME" != "" ]; then
+    JAVA_EXE=$JAVA_HOME/bin/java
+    $JAVA_EXE -version 2> tmp.ver
+    VERSION=`cat tmp.ver | grep "java version" | awk '{ print substr($3, 2, length($3)-2); }'`
+    rm tmp.ver
+    VERSION=`echo $VERSION | awk '{ print substr($1, 1, 3); }' | sed -e 's;\.;0;g'`
+    if [ $VERSION ]; then
+    if [ $VERSION -ge $REQUIRED_VERSION ]; then
+        FOUND_JAVA_HOME=`echo $JAVA_EXE | awk '{ print substr($1, 1, length($1)-9); }'`
+    fi
+   fi
+fi
+
+
+# If the existing JAVA_HOME directory is adequate, then leave it alone
+# otherwise, use 'locate' to search for other possible java candidates and
+# check their versions.
+if [ "$FOUND_JAVA_HOME" == "" ]; then
+    for JAVA_EXE in `locate bin/java | grep java$ | xargs echo`; do
+    $JAVA_EXE -version 2> tmp.ver 1> /dev/null
+    VERSION=`cat tmp.ver | grep "java version" | awk '{ print substr($3, 2, length($3)-2); }'`
+    rm tmp.ver
+    VERSION=`echo $VERSION | awk '{ print substr($1, 1, 3); }' | sed -e 's;\.;0;g'`
+    if [ $VERSION ]; then
+            if [ $VERSION -ge $REQUIRED_VERSION ]; then
+        FOUND_JAVA_HOME=`echo $JAVA_EXE | awk '{ print substr($1, 1, length($1)-9); }'`
+        break
+        fi
+    fi
+    done
+fi
+
+# ----[ CHECK FOR FOUND JAVA RUNTIME ]-----------------------------------------------
+
+
+# If no correct Java version could be detected, then exit here
+if [ "$FOUND_JAVA_HOME" == "" ]
+then
+    echo "ERROR: NO ADEQUATE JAVA VM FOUND! You can either obtain a JRE at http://java.com/download, or you can reinstall JControl with JRE option enabled."
+    exit 1
+else
+    export JAVA_HOME=$FOUND_JAVA_HOME
+    echo JAVA_HOME=$JAVA_HOME
+fi
+
+# ----[  START JCONTROL APPLICATION ]------------------------------------------------
+
+export LD_LIBRARY_PATH=./lib/linux/native/drivers
+$JAVA_HOME/bin/java -Djava.ext.dirs=./lib/shared:./lib/linux -Djava.library.path=./lib/linux/native -jar $APPLICATION_PATH/$APPLICATION_NAME.jar
