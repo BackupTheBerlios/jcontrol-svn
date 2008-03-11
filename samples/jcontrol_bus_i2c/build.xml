@@ -1,0 +1,257 @@
+<project name="jcontrol_bus_i2c" default="jar" basedir=".">
+  <description>
+    JControl/I2C Build File
+  </description>
+
+  <!-- define external tasks -->
+  <taskdef resource="net/sf/antcontrib/antcontrib.properties" classpath="${ant.home}/lib/ant-contrib.jar"/>
+  <taskdef resource="proguard/ant/task.properties" classpath="${ant.home}/lib/proguard.jar"/>
+
+  <!-- define package name -->
+  <property name="package.name" value="jcontrol.bus.i2c"/>
+  <property name="package.title" value="JControl/I2C Library"/>
+
+  <!-- set global properties for this build -->
+  <property name="home" location=".."/>
+  <property name="src" location="src"/>
+  <property name="bin" location="bin"/>
+  <property name="rsc" location="rsc"/>
+  <property name="metainf" location="META-INF"/>
+  <property name="images" location="images"/>
+  <property name="spec" location="spec"/>
+  <property name="doc" location="docs"/>
+  <property name="test" location="test"/>
+
+  <!-- include standard build properties file -->
+  <property file="build.properties"/>
+  <!-- define default distribution directory -->
+  <property name="dist.target" value="${basedir}/dist"/>
+  <!-- include global jcontrol properties -->
+  <property file="${user.home}/.jcontrol/jcontrol.properties"/>
+
+
+  <target name="compile" depends="compile-init" description="compile the source">
+    <!-- compile the java code from ${src} into ${bin} -->
+    <javac srcdir="${src}" destdir="${bin}" source="${build.source}" target="${build.target}"
+           deprecation="${build.deprecation}" optimize="${build.optimize}"
+           debug="${build.debug}" debuglevel="${build.debuglevel}">
+      <bootclasspath>
+        <filelist dir="${jcontrol.jarpath}"
+                  files="${JControl.Profile.Classpath.BuiltIn(name)}
+                         ${JControl.Profile.Classpath.Standard(name)}"/>
+      </bootclasspath>
+    </javac>
+  </target>
+
+  <target name="compile-init">
+    <!-- read classpath properties from specified device profile (xml) -->
+    <xmlproperty file="${jcontrol.xmlpath}/${build.profile}"/>
+    <!-- create bin directory for binaries -->
+    <mkdir dir="${bin}"/>
+  </target>
+
+
+  <target name="jar" depends="jar-init,compile" description="generate the jar file">
+    <!-- get basenames of additional JAR elements -->
+    <basename file="${rsc}" property="rsc.basename"/>
+    <basename file="${metainf}" property="metainf.basename"/>
+    <basename file="${images}" property="images.basename"/>
+    <basename file="${doc}" property="doc.basename"/>
+    <!-- generate JAR file -->
+    <jar destfile="${ant.project.name}.jar">
+      <!-- pack the jar file with output from the compiler -->
+      <fileset dir="${bin}"/>
+      <!-- Append package.html files from source directory (who needs it?) -->
+      <fileset dir="${src}">
+        <include name="**/package.html"/>
+      </fileset>
+      <fileset dir="." includes="${rsc.basename}/**"/>
+      <fileset dir="." includes="${metainf.basename}/**"/>
+      <fileset dir="." includes="${images.basename}/**"/>
+    </jar>
+
+    <!-- optionally include the javadocs -->
+    <if>
+      <equals arg1="${build.docs}" arg2="true"/>
+      <then>
+        <antcall target="docs"/>
+        <jar destfile="${ant.project.name}.jar" update="true">
+          <fileset dir="." includes="${doc.basename}/**"/>
+        </jar>
+      </then>
+    </if>
+
+    <!-- optionally obfuscate archive -->
+    <if>
+      <equals arg1="${build.obfuscate}" arg2="true"/>
+      <then>
+        <antcall target="obfuscate"/>
+      </then>
+    </if>
+  </target>
+
+  <target name="jar-init" unless="build.date">
+    <!-- init time stamp variables -->
+    <tstamp/>
+    <!-- generate JAR file name -->
+    <property name="build.date" value="${DSTAMP}"/>
+  </target>
+
+
+  <target name="docs" depends="compile,docs-init" description="generate javadoc files">
+    <!-- first, delete all existing documents -->
+    <delete dir="${doc}/api"/>
+    <!-- generate "stand alone" JavaDocs for Vole GUI -->
+    <javadoc packagenames="${package.name}.*"
+             classpath="${bin}"
+             destdir="${doc}/api"
+             encoding="${build.encoding}"
+             access="package"
+             author="true"
+             version="true"
+             use="false"
+             nodeprecated="true"
+             nodeprecatedlist="true"
+             splitindex="true"
+             windowtitle="${package.title}">
+    <fileset dir="${src}">
+      <include name="**/*.java"/>
+    </fileset>
+    <doctitle>
+      <![CDATA[<h2>${package.title}</h2>]]>
+    </doctitle>
+    <bootclasspath>
+      <pathelement location="${bin}"/>
+        <filelist dir="${jcontrol.jarpath}"
+                  files="${JControl.Profile.Classpath.BuiltIn(name)}
+                         ${JControl.Profile.Classpath.Standard(name)}"/>
+    </bootclasspath>
+    <link offline="true" href="http://www.jcontrol.org/html/javadoc/" packagelistLoc="${home}/../jcontrol.org/html/javadoc/"/>
+    </javadoc>
+  </target>
+
+  <target name="docs-init">
+    <!-- create the docs directory structure used by javadoc -->
+    <mkdir dir="${doc}/api"/>
+  </target>
+
+
+  <target name="spec" depends="spec-init" description="generate specification file">
+    <!-- generate aml specification file -->
+    <javadoc packagenames="${package.name}/*"
+             sourcepath="${src}"
+             encoding="${build.encoding}">
+      <doclet name="jcontrol.tools.doclets.spec.SpecDoclet"
+              path="../../jcontrol_tools/Doclets/bin">
+        <param name="-template" value="${spec}/packagespec.xml"/>
+        <param name="-o" value="spec/${ant.project.name}.xml"/>
+      </doclet>
+      <bootclasspath>
+        <pathelement location="${bin}"/>
+        <filelist dir="${jcontrol.jarpath}"
+                  files="${JControl.Profile.Classpath.BuiltIn(name)}
+                         ${JControl.Profile.Classpath.Standard(name)}"/>
+      </bootclasspath>
+    </javadoc>
+  </target>
+
+  <target name="spec-init">
+    <!-- read classpath properties from specified device profile (xml) -->
+    <xmlproperty file="${jcontrol.xmlpath}/${build.profile}"/>
+  </target>
+
+
+  <target name="obfuscate" depends="jar-init" description="obfuscate jar file">
+     <!-- read classpath properties from specified device profile (xml) -->
+    <xmlproperty file="${jcontrol.xmlpath}/${build.profile}"/>
+    <!-- generate temporary file for first pass -->
+    <tempfile property="dist.temp" prefix="tmp_" suffix=".jar"/>
+    <!-- generate mapfile name -->
+    <basename file="${ant.project.name}.jar" property="map.filename" suffix=".jar"/>
+    <!-- obfuscate JAR file -->
+    <proguard outjar="${dist.temp}"
+              defaultpackage="${package.name}/internal"
+              overloadaggressively="true"
+              printmapping="${map.filename}.map">
+
+      <injar file="${ant.project.name}.jar"/>
+      <libraryjar>
+        <fileset dir="${jcontrol.jarpath}"
+                 includes="${JControl.Profile.Classpath.BuiltIn(name)},
+                           ${JControl.Profile.Classpath.Standard(name)}"/>
+      </libraryjar>
+
+      <!-- preserve all native method names and the names of their classes. -->
+      <keepclasseswithmembernames>
+        <method access="native"/>
+      </keepclasseswithmembernames>
+
+      <!-- explicitly preserve all serialization members. The Serializable
+           interface is only a marker interface, so it wouldn't save them. -->
+      <keepclassmembers name="*" implements="java.io.Serializable">
+        <field access="final" type="long" name="serialVersionUID"/>
+        <method access="private" name="writeObject(java.io.ObjectOutputStream)"/>
+        <method access="private" name="readObject(java.io.ObjectInputStream)"/>
+        <method type="java.lang.Object" name="writeReplace()"/>
+        <method type="java.lang.Object" name="readResolve()"/>
+      </keepclassmembers>
+
+      <keepclasseswithmembers access="public" type="class" name="*">
+        <method access="public" name="*"/>
+        <field access="public" name="*"/>
+        <method access="protected" name="*"/>
+        <field access="protected" name="*"/>
+      </keepclasseswithmembers>
+
+      <keep access="public" type="interface" name="*">
+        <method access="public" name="*"/>
+        <field access="public" name="*"/>
+      </keep>
+    </proguard>
+
+    <!-- delete original JAR and rename temporary file -->
+    <delete file="${ant.project.name}.jar"/>
+    <move file="${dist.temp}" tofile="${ant.project.name}.jar"/>
+  </target>
+
+
+  <target name="dist" depends="dist-init,jar,docs" description="generate distribution">
+    <!-- copy everything into the distribution directory ${dist.target} -->
+    <copy todir="${dist.target}">
+      <fileset dir="." includes="${ant.project.name}.jar"/>
+    </copy>
+  </target>
+
+  <target name="dist-init" description="initialize distribution make process">
+    <!-- make distribution subdirectory if it is not already present -->
+    <mkdir dir="${dist.target}"/>
+  </target>
+
+
+  <target name="install" depends="jar-init" description="install jar to working dir">
+    <copy todir="${jcontrol.jarpath}/optional/">
+      <fileset dir="." includes="${ant.project.name}.jar"/>
+    </copy>
+  </target>
+
+
+  <target name="clean" description="clean up">
+    <!-- delete the ${bin} directory tree -->
+    <delete dir="${bin}"/>
+    <!-- delete the ${doc}/api directory tree -->
+    <delete dir="${doc}/api"/>
+    <!-- delete the archive and it's descendants -->
+    <delete>
+      <fileset dir="." includes="*.jar"/>
+    </delete>
+    <!-- delete all local mapping file(s) -->
+    <delete>
+      <fileset dir="." includes="*.map"/>
+    </delete>
+    <!-- delete distributed jar file -->
+    <delete file="${dist.target}/*.jar"/>
+    <!-- delete local distribution directory (if present) -->
+    <delete dir="${basedir}/dist" failonerror="false"/>
+  </target>
+
+</project>

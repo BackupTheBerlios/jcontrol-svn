@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<jcontrol>
+	<project name="LM75test">
+		<profile name="Java-Control-Unit JCU 10" revision="2.1.0" build="20040805"/>
+		<workspace>
+			<file name="LM75test.jcw"/>
+		</workspace>
+		<libraries/>
+		<files>
+			<layer id="java">
+				<file name="LM75.java" dir="src"/>
+				<file name="LM75Test.java" dir="src"/>
+			</layer>
+		</files>
+	</project>
+</jcontrol>

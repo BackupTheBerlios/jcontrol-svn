@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcontrol version="1.0">
+  <project name="TMP75Test">
+    <profile name="JControl/SmartDisplay+" revision="2.2.0" build="20050308"/>
+    <workspace>
+      <file name="TMP75Test.jcw"/>
+    </workspace>
+    <libraries>
+      <library location="user" dir="/Eigene Dateien/jcontrol_demos/misc/jcontrol_bus_i2c/src"/>
+    </libraries>
+    <files>
+      <layer domain="java">
+        <file dir="src/" name="TMP75Test.java"/>
+      </layer>
+    </files>
+  </project>
+</jcontrol>

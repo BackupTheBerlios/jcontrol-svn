@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<jcontrol>
+	<project name="MAX6633Test">
+		<profile name="JControl/SmartDisplay" revision="2.1.0" build="20040728"/>
+		<workspace>
+			<file name="MAX6633Test.jcw"/>
+		</workspace>
+		<libraries>
+			<library location="user" dir="/Eigene Dateien/jcontrol_demos/misc/jcontrol_bus_i2c/src"/>
+		</libraries>
+		<files>
+			<layer id="java">
+				<file name="MAX6633Test.java" dir="src"/>
+			</layer>
+		</files>
+	</project>
+</jcontrol>

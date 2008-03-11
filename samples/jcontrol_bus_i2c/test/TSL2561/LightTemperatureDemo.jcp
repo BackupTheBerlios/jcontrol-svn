@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcontrol version="1.0">
+  <project name="I2C-Demo">
+    <profile name="JControl/SmartDisplay+" revision="2.3.0" build="20051207"/>
+    <description>
+      <locale language="de"><![CDATA[Neues Projekt mit JAVA-Quelldateien]]></locale>
+      <locale language="en"><![CDATA[New project with JAVA source files.]]></locale>
+    </description>
+    <workspace>
+      <file name="LightTemperatureDemo.jcw"/>
+    </workspace>
+    <libraries></libraries>
+    <files>
+      <layer domain="java">
+        <file dir="src/" name="LightTemperatureDemo.java"/>
+        <file dir="../src/jcontrol/bus/i2c/" name="TMP75.java"/>
+        <file dir="../src/jcontrol/util/" name="DataProducer.java"/>
+        <file dir="../src/jcontrol/bus/i2c/" name="TSL2561LuxConversion.java"/>
+        <file dir="../src/jcontrol/bus/i2c/" name="TSL2561.java"/>
+        <file dir="src/" name="LightTemperatureIntro.java"/>
+        <file name="jcontrol_small.jcif"/>
+      </layer>
+    </files>
+  </project>
+</jcontrol>

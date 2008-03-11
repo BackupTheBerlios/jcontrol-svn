@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<jcontrol>
+	<project name="DAC6573test">
+		<profile name="Java-Control-Unit JCU 10" revision="2.1.0" build="20040805"/>
+		<workspace>
+			<file name="DAC6573.jcw"/>
+		</workspace>
+		<libraries/>
+		<files>
+			<layer id="java">
+				<file name="DAC6573Test.java" dir="src"/>
+				<file name="DAC6573.java" dir="src"/>
+			</layer>
+		</files>
+	</project>
+</jcontrol>
