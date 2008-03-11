@@ -11,4 +11,4 @@ Ausführung:
 - Unter Java/Editor/Save Actions kann auch festgelegt werden, dass beim Speichern 
   "Format source code" und "Organize imports" ausgeführt werden.
 
-$Id: $
+$Id$
