@@ -6,6 +6,7 @@
       <file name="LightTemperatureDemo.jcw"/>
     </workspace>
     <libraries/>
+    <main class="jcontrol.demos.sensors.LightTemperatureDemo"/>
     <files>
       <layer domain="java">
         <dir name="src/"/>
