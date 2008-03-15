@@ -49,9 +49,12 @@ public interface Sensor {
     int getMin();
 
     /**
-     * Returns a unit string for the textual representation of the value.
+     * Returns a unit string (SI unit) for the textual representation of the value.
      * 
-     * @return a unit string for the textual representation of the value.
+     * @return a unit string (SI unit) for the textual representation of the value.
+     * @see <a href="http://de.wikipedia.org/wiki/Internationales_Einheitensystem">Internationale
+     *      Einheitensystem, abgekürzt SI</a>
+     * @see <a href="http://www.bipm.org/en/si/">The International System of Units (SI)</a>
      */
     String getUnit();
 

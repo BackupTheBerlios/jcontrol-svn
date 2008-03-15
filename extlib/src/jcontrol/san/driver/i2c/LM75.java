@@ -20,11 +20,10 @@ package jcontrol.san.driver.i2c;
 
 import java.io.IOException;
 
-import jcontrol.comm.I2C;
 import jcontrol.san.interfaces.sensors.Temperature;
 
 /**
- * Temperature sensor LM75 using the SM (I<sup>2</sup>C) bus.
+ * Temperature sensor LM75 (National Semiconductor) using the SM (I<sup>2</sup>C) bus.
  * 
  * <p>
  * The LM75 is a temperature sensor with a SM (I<sup>2</sup>C) interface. The temperature range
@@ -55,12 +54,7 @@ import jcontrol.san.interfaces.sensors.Temperature;
  * @author <a href="mailto:m.g.n@gmx.de">Michael Niedermair</a>
  * @version $Revision$
  */
-public class LM75 extends I2C implements Temperature {
-
-    /**
-     * The temperature.
-     */
-    private int temp;
+public class LM75 extends AbstractTempI2CDriver implements Temperature {
 
     /**
      * Create a new object.
@@ -69,15 +63,6 @@ public class LM75 extends I2C implements Temperature {
      */
     public LM75(int address) {
         super(address);
-    }
-
-    /**
-     * {@inheritDoc}
-     * 
-     * @see jcontrol.san.interfaces.sensors.Sensor#getExponent()
-     */
-    public int getExponent() {
-        return -1;
     }
 
     /**
@@ -116,48 +101,4 @@ public class LM75 extends I2C implements Temperature {
         return temp;
     }
 
-    /**
-     * {@inheritDoc}
-     * 
-     * @see jcontrol.san.interfaces.sensors.Sensor#getUnit()
-     */
-    public String getUnit() {
-        return "\u00b0C";
-    }
-
-    /**
-     * {@inheritDoc}
-     * 
-     * @see jcontrol.san.interfaces.sensors.Sensor#getValue()
-     */
-    public int getValue() {
-        return temp;
-    }
-
-    /**
-     * {@inheritDoc}
-     * 
-     * @see jcontrol.san.interfaces.sensors.Sensor#toString()
-     */
-    public String toString() {
-        // temperature resolution is 1/10 degree celsius
-        int whole = temp / 10;
-        int parts = temp % 10;
-
-        return Integer.toString(whole).concat(".").concat(Integer.toString(parts))
-                .concat(getUnit());
-    }
-
-    /**
-     * {@inheritDoc}
-     * 
-     * @see jcontrol.san.interfaces.sensors.Sensor#updateValue()
-     */
-    public void updateValue() {
-        try {
-            temp = getTemp();
-        } catch (IOException e) {
-            temp = 0;
-        }
-    }
 }
