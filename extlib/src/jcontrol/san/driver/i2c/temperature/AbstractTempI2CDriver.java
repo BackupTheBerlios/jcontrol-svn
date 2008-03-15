@@ -17,7 +17,7 @@
  *
  */
 
-package jcontrol.san.driver.i2c;
+package jcontrol.san.driver.i2c.temperature;
 
 import java.io.IOException;
 
@@ -35,7 +35,7 @@ public abstract class AbstractTempI2CDriver extends I2C implements Temperature {
     /**
      * The temperature.
      */
-    protected int temp;
+    protected int temp = 0;
 
     /**
      * Create a new object.

@@ -16,7 +16,7 @@
  * Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  */
-package jcontrol.san.driver.i2c;
+package jcontrol.san.driver.i2c.temperature;
 
 import java.io.IOException;
 
@@ -63,6 +63,7 @@ public class LM75 extends AbstractTempI2CDriver implements Temperature {
      */
     public LM75(int address) {
         super(address);
+        updateValue();
     }
 
     /**

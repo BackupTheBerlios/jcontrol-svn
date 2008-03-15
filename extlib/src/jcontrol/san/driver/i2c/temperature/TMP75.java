@@ -16,7 +16,7 @@
  * Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  */
-package jcontrol.san.driver.i2c;
+package jcontrol.san.driver.i2c.temperature;
 
 import java.io.IOException;
 
@@ -57,8 +57,9 @@ public class TMP75 extends AbstractTempI2CDriver implements Temperature {
         try {
             this.write(command, 0, command.length);
         } catch (IOException e) {
-            // ignore
+            // ignore it, use default values
         }
+        updateValue();
     }
 
     /**
