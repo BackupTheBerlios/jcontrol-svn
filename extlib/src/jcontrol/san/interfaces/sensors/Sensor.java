@@ -49,9 +49,9 @@ public interface Sensor {
     int getMin();
 
     /**
-     * Returns a unit string for the graphical representation of the value.
+     * Returns a unit string for the textual representation of the value.
      * 
-     * @return a unit string for the graphical representation of the value.
+     * @return a unit string for the textual representation of the value.
      */
     String getUnit();
 
