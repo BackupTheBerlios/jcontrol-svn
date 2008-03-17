@@ -37,7 +37,7 @@
     <!-- ==================================================================== -->
 
     <property name="target" location="target" />
-    <property name="src" location="src" />
+    <property name="src" location="src/java" />
     <property name="javac.deprecation" value="off" />
     <property name="classes" location="${target}/classes" />
     <property name="javadoc" location="${target}/javadoc" />
