@@ -83,6 +83,15 @@ public class TMP75 extends AbstractTempI2CDriver implements Temperature {
     /**
      * {@inheritDoc}
      * 
+     * @see jcontrol.san.interfaces.sensors.Sensor#getName()
+     */
+    public String getName() {
+        return "TMP75";
+    }
+
+    /**
+     * {@inheritDoc}
+     * 
      * @see jcontrol.san.interfaces.sensors.Temperature#getTemp()
      */
     public int getTemp() throws IOException {
@@ -100,5 +109,4 @@ public class TMP75 extends AbstractTempI2CDriver implements Temperature {
         temp = Math.scale((buf[0] << 8) | (buf[1] & 0xF0), 128, 5);
         return temp;
     }
-
 }

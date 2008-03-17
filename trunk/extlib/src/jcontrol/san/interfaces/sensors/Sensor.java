@@ -49,6 +49,13 @@ public interface Sensor {
     int getMin();
 
     /**
+     * Return the name of the sensor.
+     * 
+     * @return the name of the sensor.
+     */
+    String getName();
+
+    /**
      * Returns a unit string (SI unit) for the textual representation of the value.
      * 
      * @return a unit string (SI unit) for the textual representation of the value.

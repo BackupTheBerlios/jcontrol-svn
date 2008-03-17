@@ -87,6 +87,15 @@ public class LM75 extends AbstractTempI2CDriver implements Temperature {
     /**
      * {@inheritDoc}
      * 
+     * @see jcontrol.san.interfaces.sensors.Sensor#getName()
+     */
+    public String getName() {
+        return "LM75";
+    }
+
+    /**
+     * {@inheritDoc}
+     * 
      * @see jcontrol.san.interfaces.sensors.Temperature#getTemp()
      */
     public int getTemp() throws IOException {
@@ -101,5 +110,4 @@ public class LM75 extends AbstractTempI2CDriver implements Temperature {
         temp = (buf[0] * 10) + (((buf[1] & 0x80) * 5) >> 7);
         return temp;
     }
-
 }
