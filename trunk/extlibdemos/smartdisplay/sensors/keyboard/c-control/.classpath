@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="var" path="JCONTROL_PROFILES/jar/optional/jcontrol_ui_vole_20060731.jar"/>
+	<classpathentry kind="var" path="JCONTROL_PROFILES/jar/standard/jcvm8_display_20040728.jar"/>
+	<classpathentry kind="var" path="JCONTROL_PROFILES/jar/builtin/jcontrol_smartdisplay_plus_20051207.jar"/>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="src" path="rsc"/>
+	<classpathentry combineaccessrules="false" kind="src" path="/ExtLib"/>
+	<classpathentry kind="lib" path="/ExtLib/target/classes"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
