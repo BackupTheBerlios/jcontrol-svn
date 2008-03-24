@@ -21,7 +21,7 @@ import jcontrol.comm.DisplayConsole;
 import jcontrol.io.Backlight;
 import jcontrol.io.Display;
 import jcontrol.lang.ThreadExt;
-import jcontrol.san.driver.gpio.EvbKeyBoard;
+import jcontrol.san.driver.gpio.key.EvbKeyBoard;
 
 /**
  * Demo for the Evb keyboard.
