@@ -17,7 +17,7 @@
  *
  */
 
-package jcontrol.san.driver.gpio;
+package jcontrol.san.driver.gpio.key;
 
 import jcontrol.io.Keyboard;
 import jcontrol.san.interfaces.sensors.KeyBoard;
