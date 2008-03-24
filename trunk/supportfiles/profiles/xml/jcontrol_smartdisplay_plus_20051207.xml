@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<JControl>
+ <Profile name="JControl/SmartDisplay+" revision="2.3.0" build="20051207" protocol="JCVM8" filetype="img">
+  <Icon name="jcontrol_smartdisplay.gif"/>
+  <Fileformats>
+   <Image>
+    <Format name="jcif" version="0001"/>
+   </Image>
+   <Font>
+    <Format name="jcfd" version="0002"/>
+   </Font>
+   <Melody>
+    <Format name="IMELODY" version="1.2" format="CLASS1.0"/>
+   </Melody>
+  </Fileformats>
+  <Classpath>
+   <BuiltIn name="builtin/jcontrol_smartdisplay_plus_20051207.jar"/>
+   <Standard name="standard/jcvm8_display_20040728.jar"/>
+   <Optional name="optional/jcontrol_ui_vole_20060731.jar"/>
+  </Classpath>
+  <Schematic width="962" height="419" dpi="254"> <!-- total size -->
+    <Rectangle x="100" y="0" width="762" height="419"/> <!-- 76.2x41.9mm -->
+    <Icon name="jcontrol_smartdisplay_schematic.gif" x="100" y="0" width="762" height="419"/> <!-- relative coordinates -->
+    <Pin name="TXD" number="1" type="OUTPUT" x="100" y="70" width="75" height="26" orientation="left"/>
+    <Pin name="RXD" number="2" type="INPUT" x="100" y="96" width="75" height="26" orientation="left"/>
+    <Pin name="RTS" number="3" type="OUTPUT" x="100" y="122" width="75" height="26" orientation="left"/>
+    <Pin name="CTS" number="4" type="INPUT" x="100" y="148" width="75" height="26" orientation="left"/>
+    <Pin name="SCL" number="5" type="OUTPUT" x="100" y="175" width="75" height="26" orientation="left"/>
+    <Pin name="SDA" number="6" type="BIDIRECTIONAL" x="100" y="201" width="75" height="26" orientation="left"/>
+    <Pin name="GPIO #0" number="7" type="BIDIRECTIONAL" x="100" y="227" width="75" height="26" orientation="left">
+      <GPIO channel="0"/>
+      <PWM channel="0"/>
+    </Pin>
+    <Pin name="GPIO #1" number="8" type="BIDIRECTIONAL" x="100" y="252" width="75" height="25" orientation="left">
+      <GPIO channel="1"/>
+      <PWM channel="1"/>
+    </Pin>
+    <Pin name="/BACKLIGHT" number="9" type="BIDIRECTIONAL" x="100" y="278" width="75" height="26" orientation="left">
+      <PWM channel="2"/>
+    </Pin>
+    <Pin name="BUZZER" number="10" type="BIDIRECTIONAL" x="100" y="304" width="75" height="26" orientation="left">
+      <PWM channel="3"/>
+    </Pin>
+    <Pin name="GND" number="12" type="BIDIRECTIONAL" x="100" y="355" width="75" height="26" orientation="left"/>
+    <Pin name="VCC" number="24" type="POWER" x="862" y="70" width="75" height="26" orientation="right"/>
+    <Pin name="/RESET" number="22" type="INPUT" x="862" y="123" width="75" height="26" orientation="right"/>
+    <Pin name="GPIO #2" number="20" type="BIDIRECTIONAL" x="862" y="175" width="75" height="26" orientation="right">
+      <GPIO channel="2"/>
+      <ADC channel="0"/>
+    </Pin>
+    <Pin name="GPIO #3" number="19" type="BIDIRECTIONAL" x="862" y="201" width="75" height="26" orientation="right">
+      <GPIO channel="3"/>
+      <ADC channel="1"/>
+    </Pin>
+    <Pin name="GPIO #4" number="18" type="BIDIRECTIONAL" x="862" y="227" width="75" height="25" orientation="right">
+      <GPIO channel="4"/>
+      <ADC channel="2"/>
+    </Pin>
+    <Pin name="GPIO #5" number="17" type="BIDIRECTIONAL" x="862" y="252" width="75" height="26" orientation="right">
+      <GPIO channel="5"/>
+      <ADC channel="3"/>
+    </Pin>
+    <Pin name="GPIO #6" number="16" type="BIDIRECTIONAL" x="862" y="278" width="75" height="26" orientation="right">
+      <GPIO channel="6"/>
+      <ADC channel="4"/>
+    </Pin>
+    <Pin name="GPIO #7" number="15" type="BIDIRECTIONAL" x="862" y="304" width="75" height="26" orientation="right">
+      <GPIO channel="7"/>
+      <ADC channel="5"/>
+    </Pin>
+    <Pin name="GPIO #8" number="14" type="BIDIRECTIONAL" x="862" y="330" width="75" height="25" orientation="right">
+      <GPIO channel="8"/>
+      <ADC channel="6"/>
+    </Pin>
+    <Pin name="GPIO #9" number="13" type="BIDIRECTIONAL" x="862" y="355" width="75" height="26" orientation="right">
+      <GPIO channel="9"/>
+      <ADC channel="7"/>
+    </Pin>
+  </Schematic>
+  <Simulation name="JCVM8_V2_3.jar" filetype="jar" version="20040426">
+   <Background name="jcontrol_smartdisplay.jpg"/>
+   <Components>
+    <GPIO>
+     <Pin name="GPIO #0" number="0"/>
+     <Pin name="GPIO #1" number="1"/>
+     <Pin name="GPIO #2" number="2"/>
+     <Pin name="GPIO #3" number="3"/>
+     <Pin name="GPIO #4" number="4"/>
+     <Pin name="GPIO #5" number="5"/>
+     <Pin name="GPIO #6" number="6"/>
+     <Pin name="GPIO #7" number="7"/>
+     <Pin name="GPIO #8" number="8"/>
+     <Pin name="GPIO #9" number="9"/>
+     <Pin name="GPIO #10" number="10"/>
+     <Pin name="GPIO #11" number="11"/>
+    </GPIO>
+    <GraphicsDevice name="Display_128x64x1_backlight">
+     <Pin name="Backlight"/>
+     <Bounds>
+      <Position x="17" y="0"/>
+     </Bounds>
+    </GraphicsDevice>
+    <KeyboardDevice name="JoystickSwitch" keymap="S;U;D;L;R">
+     <Bounds>
+      <Position x="210" y="43"/>
+     </Bounds>
+    </KeyboardDevice>
+    <Flash format="512x128x2"/>
+    <PWM>
+     <Pin name="PWM #0" channel="0"/>
+     <Pin name="PWM #1" channel="1"/>
+     <Pin name="Backlight" channel="2"/>
+     <Pin name="Buzzer" channel="3"/>
+    </PWM>
+    <ADC>
+     <Pin name="ADC #0" channel="0"/>
+     <Pin name="ADC #1" channel="1"/>
+     <Pin name="ADC #2" channel="2"/>
+     <Pin name="ADC #3" channel="3"/>
+     <Pin name="ADC #4" channel="4"/>
+     <Pin name="ADC #5" channel="5"/>
+     <Pin name="ADC #6" channel="6"/>
+    </ADC>
+   </Components>
+  </Simulation>
+  <Properties name="JCPO" version="0000" type="STLV" size="128">
+   <Group name="Profile" icon="profile.gif">
+    <Entry name="Name" key="profile.name" type="String" help="Typenbezeichnung" access="r"/>
+    <Entry name="Build Date" key="profile.date" type="String" help="Erstellungsdatum der VM" access="r" icon="calendar.gif"/>
+   </Group>
+   <Group name="Flash" icon="flash.gif">
+    <Entry name="Flashformat" key="flash.format" type="String" help="Bytes x Blöcke x Bänke" access="r" icon="flash.gif"/>
+   </Group>
+   <Group name="IO Peripherals" icon="io.gif">
+    <Entry name="GPIO Channels" key="io.gpiochannels" type="Int" help="Anzahl verfügbarer GPIO Kanäle" access="r" icon="gpio.gif"/>
+    <Entry name="PWM Channels" key="io.pwmchannels" type="Int" help="Anzahl verfügbarer PWM-Kanäle" access="r" icon="pwm.gif"/>
+    <Entry name="ADC Channels" key="io.adcchannels" type="Int" help="Anzahl verfügbarer ADC-Kanäle" access="r" icon="adc.gif"/>
+   </Group>
+   <Group name="Display" icon="display.gif">
+    <Entry name="Dimensions" key="display.dimensions" type="String" help="Breite x Höhe x Farbtiefe" value="128x64x1" access="r" icon="display.gif"/>
+    <Entry name="Contrast" key="display.contrast" tag="K" type="Int" help="Kontrast für das Display" access="rw" value="170" icon="contrast.gif">
+     <Range name="bestfit" min="20" max="255"/>
+    </Entry>
+   </Group>
+   <Group name="System" icon="system.gif">
+    <Entry name="Heap Size" key="system.heapsize" type="Int" help="Größe des Heap-Speichers" value="2688" access="r" icon="ram.gif"/>
+   </Group>
+   <Group name="Sound" icon="sound.gif">
+    <Entry name="System Beep" key="buzzer.systembeep" type="Bool" help="Systemtöne" value="true" icon="sound.gif"/>
+    <Entry name="Keyboard Beep" key="buzzer.keyboardbeep" type="Bool" help="Tastenklick" value="true" icon="keyclick.gif"/>
+    <Entry name="Buzzer" key="buzzer.enable" type="Bool" help="Buzzer für Musik etc." value="true" icon="sound.gif"/>
+   </Group>
+   <Group name="RS232" icon="rs232.gif">
+    <Entry name="Parameters" key="rs232.params" tag="Q" type="Int" help="Parameter für die RS232-Schnittstelle" access="rw" value="0" icon="listen.gif">
+     <Choice value="0" name="8N1"/>
+     <Choice value="1" name="8E1"/>
+     <Choice value="2" name="8O1"/>
+     <Choice value="8" name="8N1 Echo"/>
+     <Choice value="9" name="8E1 Echo"/>
+     <Choice value="10" name="8O1 Echo"/>
+     <Choice value="16" name="8N1 XON/XOFF"/>
+     <Choice value="17" name="8E1 XON/XOFF"/>
+     <Choice value="18" name="8O1 XON/XOFF"/>
+     <Choice value="24" name="8N1 XON/XOFF, Echo"/>
+     <Choice value="25" name="8E1 XON/XOFF, Echo"/>
+     <Choice value="26" name="8O1 XON/XOFF, Echo"/>
+     <Choice value="32" name="8N1 RTS/CTS"/>
+     <Choice value="33" name="8E1 RTS/CTS"/>
+     <Choice value="34" name="8O1 RTS/CTS"/>
+     <Choice value="40" name="8N1 RTS/CTS, Echo"/>
+     <Choice value="41" name="8E1 RTS/CTS, Echo"/>
+     <Choice value="42" name="8O1 RTS/CTS, Echo"/>
+    </Entry>
+    <Entry name="Baudrate" key="rs232.baudrate" tag="R" type="Int" help="Baudrate für die RS232-Schnittstelle" access="rw" value="19200" icon="comm.gif">
+     <Choice value="300"/>
+     <Choice value="600"/>
+     <Choice value="1200"/>
+     <Choice value="2400"/>
+     <Choice value="4800"/>
+     <Choice value="9600"/>
+     <Choice value="19200"/>
+     <Choice value="31250"/>
+     <Choice value="63" name="62500"/>
+     <Choice value="125" name="125000"/>
+     <Choice value="250" name="250000"/>
+    </Entry>
+   </Group>
+  </Properties>
+ </Profile>
+</JControl>

@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<JControl>
+ <Profile name="JControl/Cobra5329/EBV" revision="4.6.0" build="20070425" protocol="BFT4" suffix="jcbi" archive="jcar">
+  <Icon name="cobra5329.gif"/>
+  <Classpath>
+   <BuiltIn name="builtin/jcontrol_cobra5329_ebv_builtin_20070425.jar"/>
+   <Standard name="standard/jcontrol_cobra5329_yogi2_compatibility.jar"/>
+   <Standard name="standard/jcontrol_cobra5329_bft_compatibility.jar"/>
+   <Optional name="optional/jcontrol_ui_wombat_20070301.jar"/>
+   <Optional name="optional/jcontrol_ui_vole_20060731.jar"/>
+  </Classpath>
+  <Fileformats>
+   <Image>
+    <Format name="jcif" version="0000"/>
+    <Format name="jcif" version="0001"/>
+   </Image>
+   <Font>
+    <Format name="jcfd" version="0001"/>
+    <Format name="jcfd" version="0002"/>
+   </Font>
+   <Melody>
+    <Format name="IMELODY" version="1.2" format="CLASS1.0"/>
+   </Melody>
+  </Fileformats>
+  <Simulation name="JCVM32.jar" filetype="jar"/>
+  <Properties name="JCPO" version="0001" type="DTLV" size="128">
+   <Group name="Platform" icon="profile.gif">
+    <Entry name="platform.name" key="platform.name" type="String" help="platform name" access="r"/>
+    <Entry name="platform.version" key="platform.version" type="String" help="platform version" access="r"/>
+    <Entry name="platform.serial" key="platform.serial" type="String" help="platform serial number" access="r"/>
+    <Entry name="platform.profile" key="platform.profile" type="String" help="device type identifier" access="r"/>
+   </Group>
+   <Group name="Bootloader" icon="">
+    <Entry name="bootloader.name" key="bootloader.name" type="String" help="name" access="r"/>
+    <Entry name="bootloader.version" key="bootloader.version" type="String" help="version" access="r"/>
+    <Entry name="bootloader.builddate" key="bootloader.builddate" type="String" help="build date" access="r"/>
+    <Entry name="bootloader.size" key="bootloader.size" type="String" help="size (in bytes)" access="r"/>
+   </Group>
+   <Group name="Firmware" icon="">
+    <Entry name="firmware.name" key="firmware.name" type="String" help="name" access="r"/>
+    <Entry name="firmware.version" key="firmware.version" type="String" help="version" access="r"/>
+    <Entry name="firmware.builddate" key="firmware.builddate" type="String" help="build date" access="r"/>
+    <Entry name="firmware.size" key="firmware.size" type="String" help="size (in bytes)" access="r"/>
+   </Group>
+   <Group name="Application" icon="">
+    <Entry name="applicaton.name" key="applicaton.name" type="String" help="name" access="r"/>
+    <Entry name="applicaton.version" key="applicaton.version" type="String" help="version" access="r"/>
+    <Entry name="applicaton.builddate" key="applicaton.builddate" type="String" help="build date" access="r"/>
+    <Entry name="applicaton.size" key="applicaton.size" type="String" help="size (in bytes)" access="r"/>
+   </Group>
+   <Group name="System" icon="system.gif">
+    <Entry name="system.language" key="system.language" type="String" help="language" access="rw" icon="language.gif">
+    	<Choice value="deu" name="Deutsch"/>
+    	<Choice value="eng" name="English"/>
+    </Entry>
+<!--
+    <Entry name="system.standbytimer" key="system.standbytimer" type="Int" help="time until automatic standby" icon="standby.gif"/>
+-->
+    <Entry name="system.console" key="system.console" type="String" help="enable system console" access="rw">
+        <Choice value="true" name="enabled"/>
+        <Choice value="false" name="disabled"/>
+    </Entry>
+   </Group>
+   <Group name="Custom" icon="system.gif">
+    <Entry name="custom.name" key="custom.name" type="String" help="custom device name" access="rw" icon="smile.gif"/>
+    <Entry name="custom.data" key="custom.data" type="String" help="custom persistent data" access="rw" icon="smile.gif"/>
+   </Group>
+  <Group name="Flash" icon="flash.gif">
+    <Entry name="flash.format" key="flash.format" type="String" help="bytes x blocks x banks" access="r" icon="flash.gif"/>
+  </Group>
+  <Group name="Network" icon="net.gif">
+    <Entry name="net.mac" key="net.mac" type="MacAdress" help="MAC address" access="rw"/>
+    <Entry name="net.ip" key="net.ip" type="IPAdress" help="IP address" access="rw"/>
+    <Entry name="net.mask" key="net.mask" type="IPAdress" help="net mask" access="rw"/>
+    <Entry name="net.gateway" key="net.gateway" type="IPAdress" help="gateway IP address" access="rw"/>
+    <Entry name="net.params" key="net.params" type="String" help="network adapter configuration" access="rw" value="9">
+<!--
+     <Choice value="0" name="off"/>
+-->
+     <Choice value="1" name="10Mbps with half-duplex"/>
+     <Choice value="3" name="100Mbps with half-duplex"/>
+     <Choice value="5" name="10Mbps with full-duplex"/>
+     <Choice value="7" name="100Mbps with full-duplex"/>
+     <Choice value="9" name="Auto-negotiation enabled"/>
+    </Entry>
+<!--
+	<Entry name="net.dhcp" key="net.dhcp" type="String" help="enable/disable DHCP client" access="rw">
+	 <Choice value="0" name="off"/>
+	 <Choice value="1" name="on"/>
+	</Entry>
+-->
+  </Group>
+   <Group name="Display" icon="display.gif">
+    <Entry name="display.dimensions" key="display.dimensions" type="String" help="width x height x depth" value="320x240x16" access="r" icon="display_dimension.gif"/>
+<!--
+	         <Entry name="display.brightness" key="display.brightness" type="Int" help="Helligkeit" value="65535" access="rw" icon="brightness.gif"/>
+    <Entry name="display.contrast" key="display.contrast" type="Int" help="Kontrast f�r das Display" access="rw" value="32768" icon="contrast.gif"/>
+-->
+	  </Group>
+  <Group name="Touch" icon="display.gif">
+    <Entry name="touch.calibration" key="touch.calibration" type="String" help="touch screen calibration" access="rw" icon="display_touch.gif"/>
+  </Group>
+<!--
+	    <Group name="Sound" icon="sound.gif">
+    <Entry name="buzzer.enable" key="buzzer.enable" type="Bool" help="Buzzer f�r Musik etc." value="true" icon="sound.gif"/>
+  </Group>
+-->
+	  </Properties>
+	 <!--
+<Properties name="JCPO" version="0001" type="DTLV" size="128">
+   <Group name="Hardware" icon="">
+    <Entry name="Name" key="platform.name" type="String" help="Bezeichnung" access="r"/>
+    <Entry name="Version" key="platform.version" type="String" help="Version" access="r"/>
+    <Entry name="Serial" key="platform.serial" type="String" help="Seriennummer" access="r"/>
+   </Group>
+   <Group name="Platform" icon="profile.gif">
+    <Entry name="Profil" key="platform.profile" type="String" help="Typenbezeichnung" access="r"/>
+   </Group>
+   <Group name="Bootloader" icon="">
+    <Entry name="Name" key="bootloader.name" type="String" help="Bezeichnung" access="r"/>
+    <Entry name="Version" key="bootloader.version" type="String" help="Version" access="r"/>
+    <Entry name="Build" key="bootloader.builddate" type="String" help="Erstellungsdatum" access="r"/>
+    <Entry name="Size" key="bootloader.size" type="String" help="Gr��e" access="r"/>
+   </Group>
+   <Group name="Firmware" icon="">
+    <Entry name="Name" key="firmware.name" type="String" help="Bezeichnung" access="r"/>
+    <Entry name="Version" key="firmware.version" type="String" help="Version" access="r"/>
+    <Entry name="Build" key="firmware.builddate" type="String" help="Erstellungsdatum" access="r"/>
+    <Entry name="Size" key="firmware.size" type="String" help="Gr��e" access="r"/>
+   </Group>
+   <Group name="Application" icon="">
+    <Entry name="Name" key="applicaton.name" type="String" help="Bezeichnung" access="r"/>
+    <Entry name="Version" key="applicaton.version" type="String" help="Version" access="r"/>
+    <Entry name="Build" key="applicaton.builddate" type="String" help="Erstellungsdatum" access="r"/>
+    <Entry name="Size" key="applicaton.size" type="String" help="Gr��e" access="r"/>
+   </Group>
+   <Group name="System" icon="system.gif">
+    <Entry name="Language" key="system.language" type="String" help="Spracheinstellung" access="rw" icon="language.gif">
+    	<Choice value="deu" name="Deutsch"/>
+    	<Choice value="eng" name="English"/>
+    </Entry>
+    <Entry name="Standby Delay" key="system.standbytimer" type="Int" help="Zeit bis zum automatischen Standby" icon="standby.gif"/>
+    <Entry name="Boot Mode" key="system.bootmode" type="Int" help="Boot Modus" value="0" access="rw" icon="flash.gif">
+        <Choice value="0" name="Warten"/>
+        <Choice value="1" name="Sofort booten"/>
+    </Entry>
+   </Group>
+   <Group name="Custom" icon="system.gif">
+    <Entry name="Custom Identifier" key="custom.name" type="String" help="Benutzerspezifischer Name" access="rw" icon="smile.gif"/>
+    <Entry name="Custom Data" key="custom.data" type="String" help="Benutzerspezifische Daten" access="rw" icon="smile.gif"/>
+   </Group>
+  <Group name="Flash" icon="flash.gif">
+    <Entry name="Flashformat" key="flash.format" type="String" help="Bytes x Bl�cke x B�nke" access="r" icon="flash.gif"/>
+  </Group>
+  <Group name="Network" icon="net.gif">
+    <Entry name="Mac-Address" key="net.mac" type="MacAdress" help="Mac-Adresse" access="rw"/>
+    <Entry name="IP-Address" key="net.ip" type="IPAdress" help="IP-Adresse" access="rw"/>
+    <Entry name="Subnet-Mask" key="net.mask" type="IPAdress" help="Subnetz-Maske" access="rw"/>
+    <Entry name="Gateway" key="net.gateway" type="IPAdress" help="Gateway" access="rw"/>
+    <Entry name="Parameters" key="net.params" type="String" help="Netzwerk-Parameter" access="rw" value="9">
+     <Choice value="0" name="off"/>
+     <Choice value="1" name="10Mbps with half-duplex"/>
+     <Choice value="3" name="100Mbps with half-duplex"/>
+     <Choice value="5" name="10Mbps with full-duplex"/>
+     <Choice value="7" name="100Mbps with full-duplex"/>
+     <Choice value="9" name="Auto-negotiation enabled"/>
+    </Entry>
+  </Group>
+   <Group name="Display" icon="display.gif">
+    <Entry name="Dimensions" key="display.dimensions" type="String" help="Breite x H�he x Farbtiefe" value="320x240x16" access="r" icon="display_dimension.gif"/>
+    <Entry name="Brightness" key="display.brightness" type="Int" help="Helligkeit" value="65535" access="rw" icon="brightness.gif"/>
+    <Entry name="Contrast" key="display.contrast" type="Int" help="Kontrast f�r das Display" access="rw" value="32768" icon="contrast.gif"/>
+  </Group>
+  <Group name="Touch" icon="display.gif">
+    <Entry name="Touch Calibration" key="touch.calibration" type="String" help="Touch-Screen-Kalibrierung" access="rw" icon="display_touch.gif"/>
+  </Group>
+  <Group name="Sound" icon="sound.gif">
+    <Entry name="Buzzer" key="buzzer.enable" type="Bool" help="Buzzer f�r Musik etc." value="true" icon="sound.gif"/>
+  </Group>
+  </Properties>
+-->
+ </Profile>
+</JControl>
