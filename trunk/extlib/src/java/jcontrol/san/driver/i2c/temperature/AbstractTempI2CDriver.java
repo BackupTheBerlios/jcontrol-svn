@@ -28,9 +28,14 @@ import jcontrol.san.interfaces.sensors.Temperature;
  * Abstract class for the temperature sensors.
  * 
  * @author <a href="mailto:m.g.n@gmx.de">Michael Niedermair</a>
- * @version $Revision$
+ * @version $Revision:36 $
  */
 public abstract class AbstractTempI2CDriver extends I2C implements Temperature {
+
+    /**
+     * The i2c address.
+     */
+    protected int addr;
 
     /**
      * The temperature.
@@ -44,6 +49,7 @@ public abstract class AbstractTempI2CDriver extends I2C implements Temperature {
      */
     public AbstractTempI2CDriver(int address) {
         super(address);
+        addr = address;
     }
 
     /**

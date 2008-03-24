@@ -52,7 +52,7 @@ import jcontrol.san.interfaces.sensors.Temperature;
  * @see <a href="doc-files/LM75.pdf">LM75 datasheet</a>
  * @see <a href="http://www.national.com/mpf/LM/LM75.html">datasheet from www.national.com</a>
  * @author <a href="mailto:m.g.n@gmx.de">Michael Niedermair</a>
- * @version $Revision$
+ * @version $Revision:36 $
  */
 public class LM75 extends AbstractTempI2CDriver implements Temperature {
 
@@ -90,7 +90,7 @@ public class LM75 extends AbstractTempI2CDriver implements Temperature {
      * @see jcontrol.san.interfaces.sensors.Sensor#getName()
      */
     public String getName() {
-        return "LM75";
+        return "LM75 (0x".concat(Integer.toHexString(addr)).concat(")");
     }
 
     /**

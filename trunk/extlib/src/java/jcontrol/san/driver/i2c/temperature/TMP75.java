@@ -37,7 +37,7 @@ import jcontrol.san.interfaces.sensors.Temperature;
  * 
  * @see <a href="doc-files/TMP75.pdf">TMP75 datasheet</a>
  * @author <a href="mailto:m.g.n@gmx.de">Michael Niedermair</a>
- * @version $Revision$
+ * @version $Revision:36 $
  */
 public class TMP75 extends AbstractTempI2CDriver implements Temperature {
 
@@ -86,7 +86,7 @@ public class TMP75 extends AbstractTempI2CDriver implements Temperature {
      * @see jcontrol.san.interfaces.sensors.Sensor#getName()
      */
     public String getName() {
-        return "TMP75";
+        return "TMP75 (0x".concat(Integer.toHexString(addr)).concat(")");
     }
 
     /**
