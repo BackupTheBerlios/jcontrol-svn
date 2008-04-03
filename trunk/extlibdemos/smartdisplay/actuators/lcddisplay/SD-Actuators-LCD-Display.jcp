@@ -7,8 +7,9 @@
       <locale language="de"><![CDATA[Neues Projekt mit JAVA-Quelldateien]]></locale>
     </description>
     <libraries>
-      <library dir="../../../../extlib/target/classes/"/>
+      <library location="user" dir="/daten/src/java/jcontrol/trunk/extlib/target/classes"/>
     </libraries>
+    <main class="LcdDisplay"/>
     <files>
       <layer domain="java">
         <dir name="src/"/>
