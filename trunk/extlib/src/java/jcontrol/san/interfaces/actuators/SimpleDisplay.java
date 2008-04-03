@@ -19,6 +19,8 @@
 
 package jcontrol.san.interfaces.actuators;
 
+import java.io.IOException;
+
 /**
  * Interface for a simple display.
  * 
@@ -28,12 +30,25 @@ package jcontrol.san.interfaces.actuators;
 public interface SimpleDisplay extends Actuator {
 
     /**
-     * Draw a {@link String} to the display
+     * Clear the display.
+     * 
+     * @throws IOException if an error occurred.
+     */
+    void clear() throws IOException;
+
+    /**
+     * Draw a {@link String} to the display.
      * 
      * @param s The {@link String} to display.
-     * @param x the horizontal coordinate of the strings
-     * @param y the vertical coordinate of the strings
+     * @param row the row.
+     * @throws IOException if an error occurred.
      */
-    void drawString(String s, int x, int y);
+    void drawString(String s, int row) throws IOException;
 
+    /**
+     * Initialize the display.
+     * 
+     * @throws IOException if an error occurred.
+     */
+    void init() throws IOException;
 }

@@ -10,7 +10,6 @@
     <files>
       <layer domain="java">
         <dir name="src/"/>
-        <dir name="rsc/"/>
       </layer>
     </files>
   </project>
