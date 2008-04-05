@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jcontrol version="1.0">
+  <project name="SD-Sensors-RFID">
+    <profile name="JControl/SmartDisplay+" revision="2.3.0" build="20051207"/>
+    <libraries>
+      <library dir="../../../../extlib/target/classes/"/>
+    </libraries>
+    <main class="RFIDExample"/>
+    <files>
+      <layer domain="java">
+        <dir name="src/"/>
+      </layer>
+    </files>
+  </project>
+</jcontrol>
