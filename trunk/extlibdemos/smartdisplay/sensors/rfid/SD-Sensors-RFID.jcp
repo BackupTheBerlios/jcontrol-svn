@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcontrol version="1.0">
   <project name="SD-Sensors-RFID">
-    <profile name="JControl/SmartDisplay+" revision="2.3.0" build="20051207"/>
+    <profile name="JControl/SmartDisplay+" revision="2.2.0" build="20050308"/>
+    <workspace>
+      <file name="SD-Sensors-RFID.jcw"/>
+    </workspace>
     <libraries>
-      <library dir="../../../../extlib/target/classes/"/>
+      <library name="extlib.jar" dir="lib/"/>
     </libraries>
     <main class="RFIDExample"/>
     <files>

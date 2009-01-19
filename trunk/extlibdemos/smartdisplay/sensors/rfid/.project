@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <projectDescription>
-	<name>SD-Sensors-RFID</name>
+	<name>rfid</name>
 	<comment></comment>
 	<projects>
 	</projects>
@@ -11,7 +11,7 @@
 			</arguments>
 		</buildCommand>
 		<buildCommand>
-			<name>jcontrol.eclipse.builder.JControlBuilder</name>
+			<name>jcontrol.ide.builder.JControlBuilder</name>
 			<arguments>
 			</arguments>
 		</buildCommand>
