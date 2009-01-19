@@ -2,11 +2,9 @@
 <jcontrol version="1.0">
   <project name="ExtLib">
     <profile name="Java-Control-Unit JCU 10" revision="2.3.0" build="20051207"/>
-    <description>
-      <locale language="en"><![CDATA[New project with JAVA source files.]]></locale>
-      <locale language="de"><![CDATA[Neues Projekt mit JAVA-Quelldateien]]></locale>
-    </description>
-    <libraries/>
+    <workspace>
+      <file name="ExtLib.jcw"/>
+    </workspace>
     <files>
       <layer domain="java">
         <dir name="src/"/>

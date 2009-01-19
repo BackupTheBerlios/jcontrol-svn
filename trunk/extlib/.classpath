@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src/java"/>
 	<classpathentry kind="src" path="src/rsc"/>
-	<classpathentry kind="var" path="JCONTROL_PROFILES/jar/optional/jcontrol_ui_vole_20060731.jar"/>
+	<classpathentry kind="src" path="src/java"/>
 	<classpathentry kind="var" path="JCONTROL_PROFILES/jar/standard/jcvm8_display_20040728.jar"/>
+	<classpathentry kind="var" path="JCONTROL_PROFILES/jar/optional/jcontrol_ui_vole_20060731.jar"/>
 	<classpathentry kind="var" path="JCONTROL_PROFILES/jar/builtin/elv_jcu10_20051207.jar"/>
-	<classpathentry kind="output" path="target/classes"/>
+	<classpathentry kind="output" path="target"/>
 </classpath>
