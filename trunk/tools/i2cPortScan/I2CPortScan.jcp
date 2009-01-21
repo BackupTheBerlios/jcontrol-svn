@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcontrol version="1.0">
   <project name="I2CPortScan">
-    <profile name="JControl/SmartDisplay+" revision="2.2.0" build="20050308"/>
+    <profile name="JControl/SmartDisplay2/Standard" revision="4.0" build="20080814"/>
     <workspace>
       <file dir="../../../../bin/eclipse/I/" name="I.jcw"/>
     </workspace>
