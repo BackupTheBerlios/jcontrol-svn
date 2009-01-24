@@ -1,0 +1,236 @@
+<project name="jcontrol_ui_viper" default="jar" basedir=".">
+
+   <!-- $Id$ -->
+   <description> JControl/Viper Build File</description>
+
+   <!-- define external tasks -->
+   <taskdef resource="net/sf/antcontrib/antcontrib.properties"
+      classpath="lib/ant-contrib.jar" />
+   <taskdef resource="proguard/ant/task.properties" classpath="lib/proguard.jar" />
+
+   <!-- define package name -->
+   <property name="package.name" value="jcontrol.ui.viper" />
+   <property name="package.title" value="JControl/Viper GUI Framework" />
+
+   <!-- set global properties for this build -->
+   <property name="target" location="target" />
+   <property name="src" location="src/java" />
+   <property name="bin" location="${target}/classes" />
+   <property name="jar" location="${target}/jar" />
+   <property name="rsc" location="src/rsc" />
+   <property name="metainf" location="src/meta-inf" />
+   <property name="images" location="src/images" />
+   <property name="spec" location="spec" />
+   <property name="doc" location="${target}/docs" />
+   <property name="test" location="test" />
+
+   <!-- include standard build properties file -->
+   <property file="build.properties" />
+   <!-- define default distribution directory -->
+   <property name="dist.target" value="${target}/dist" />
+   <!-- include global jcontrol properties and set default parameters -->
+   <property file="${user.home}/.jcontrol/jcontrol.properties" />
+   <property name="jcontrol.profiles.jar.path" value="${build.profiledir}/jar" />
+   <property name="jcontrol.profiles.xml.path" value="${build.profiledir}/xml" />
+   
+   <target name="compile" depends="compile-init" description="compile the source">
+      <!-- compile the java code from ${src} into ${bin} -->
+      <javac srcdir="${src}" destdir="${bin}" source="${build.source}"
+         target="${build.target}" encoding="${build.encoding}" deprecation="${build.deprecation}"
+         optimize="${build.optimize}" debug="${build.debug}" debuglevel="${build.debuglevel}">
+         <bootclasspath>
+            <filelist dir="${jcontrol.profiles.jar.path}"
+               files="${JControl.Profile.Classpath.BuiltIn(name)}
+                         ${JControl.Profile.Classpath.Standard(name)}" />
+         </bootclasspath>
+      </javac>
+   </target>
+   
+   <target name="compile-init">
+      <!-- read classpath properties from specified device profile (xml) -->
+      <xmlproperty file="${jcontrol.profiles.xml.path}/${build.profile}" />
+      <!-- create bin directory for binaries -->
+      <mkdir dir="${bin}" />
+   </target>
+   
+   <target name="jar" depends="jar-init,compile" description="generate the jar file">
+      <!-- generate timestamp for now -->
+      <tstamp />
+      <!-- get basenames of additional JAR elements -->
+      <basename file="${rsc}" property="rsc.basename" />
+      <basename file="${metainf}" property="metainf.basename" />
+      <basename file="${images}" property="images.basename" />
+      <basename file="${doc}" property="doc.basename" />
+      <basename file="${src}" property="src.basename" />
+      <!-- generate JAR file -->
+      <jar destfile="${jar}/${ant.project.name}_${build.date}.jar">
+         <!-- pack the jar file with output from the compiler -->
+         <fileset dir="${bin}" />
+         <!-- Append package.html files from source directory (who needs it?) -->
+         <fileset dir="${src}">
+            <include name="**/package.html" />
+         </fileset>
+         <fileset dir="." includes="${rsc.basename}/**" />
+         <fileset dir="." includes="${images.basename}/**" />
+         <manifest>
+            <attribute name="Built-By" value="${user.name}" />
+            <attribute name="Build-Date" value="${DSTAMP}${TSTAMP}" />
+         </manifest>
+         <metainf dir="${metainf}" />
+      </jar>
+
+      <!-- optionally include the javadocs -->
+      <if>
+         <equals arg1="${build.include.docs}" arg2="true" />
+         <then>
+            <antcall target="docs" />
+            <jar destfile="${jar}/${ant.project.name}_${build.date}.jar" update="true">
+               <fileset dir="." includes="${doc.basename}/**" />
+            </jar>
+         </then>
+      </if>
+
+      <!-- optionally include the java source -->
+      <if>
+         <equals arg1="${build.include.src}" arg2="true" />
+         <then>
+            <jar destfile="${jar}/${ant.project.name}_${build.date}.jar" update="true">
+               <fileset dir="." includes="${src.basename}/**/*.java" />
+            </jar>
+         </then>
+      </if>
+
+      <!-- optionally obfuscate archive -->
+      <if>
+         <equals arg1="${build.obfuscate}" arg2="true" />
+         <then>
+            <antcall target="obfuscate" />
+         </then>
+      </if>
+   </target>
+   
+   <target name="jar-init" depends="dist-init" unless="build.date">
+      <!-- init time stamp variables -->
+      <tstamp />
+      <!-- generate JAR file name -->
+      <property name="build.date" value="${DSTAMP}" />
+   </target>
+   
+   <target name="docs" depends="compile,docs-init" description="generate javadoc files">
+      <!-- first, delete all existing documents -->
+      <delete dir="${doc}/api" />
+      <!-- generate "stand alone" JavaDocs for this framework -->
+      <javadoc packagenames="${package.name}.*" classpath="${bin}"
+         destdir="${doc}/api" encoding="${build.encoding}" access="package"
+         author="true" version="true" use="false" nodeprecated="true"
+         nodeprecatedlist="true" splitindex="true" windowtitle="${package.title}">
+         <fileset dir="${src}">
+            <include name="**/*.java" />
+         </fileset>
+         <doctitle>
+            <![CDATA[<h2>${package.title}</h2>]]>
+         </doctitle>
+         <bootclasspath>
+            <pathelement location="${bin}" />
+            <filelist dir="${jcontrol.profiles.jar.path}"
+               files="${JControl.Profile.Classpath.BuiltIn(name)}
+                         ${JControl.Profile.Classpath.Standard(name)}" />
+         </bootclasspath>
+         <link offline="true" href="http://www.jcontrol.org/html/javadoc/"
+            packagelistLoc="${home}/../jcontrol.org/html/javadoc/" />
+      </javadoc>
+   </target>
+   
+   <target name="docs-init">
+      <!-- create the docs directory structure used by javadoc -->
+      <mkdir dir="${doc}/api" />
+   </target>
+   
+   <target name="spec" depends="spec-init" description="generate specification file">
+      <!-- generate aml specification file -->
+      <javadoc packagenames="${package.name}/*" sourcepath="${src}"
+         encoding="${build.encoding}">
+         <doclet name="jcontrol.tools.doclets.spec.SpecDoclet" path="../../jcontrol_tools/Doclets/bin">
+            <param name="-template" value="${spec}/packagespec.xml" />
+            <param name="-o" value="spec/${ant.project.name}.xml" />
+         </doclet>
+         <bootclasspath>
+            <pathelement location="${bin}" />
+            <filelist dir="${jcontrol.profiles.jar.path}"
+               files="${JControl.Profile.Classpath.BuiltIn(name)}
+                         ${JControl.Profile.Classpath.Standard(name)}" />
+         </bootclasspath>
+      </javadoc>
+   </target>
+   
+   <target name="spec-init">
+      <!-- read classpath properties from specified device profile (xml) -->
+      <xmlproperty file="${jcontrol.profiles.xml.path}/${build.profile}" />
+   </target>
+   
+   <target name="obfuscate" description="obfuscate jar file">
+      <!-- generate temporary file for first pass -->
+      <tempfile property="dist.temp" prefix="tmp_" suffix=".jar" />
+      <!-- generate name of mapfile for retracing feature -->
+      <basename file="${ant.project.name}_${build.date}.jar" property="map.filename"
+         suffix=".jar" />
+      <!-- read classpath properties from specified device profile (xml) -->
+      <xmlproperty file="${jcontrol.profiles.xml.path}/${build.profile}" />
+
+      <!-- obfuscate JAR file -->
+      <proguard defaultpackage="${package.name}/internal"
+         overloadaggressively="true" printmapping="${map.filename}.map">
+         <injar file="${ant.project.name}_${build.date}.jar" />
+         <outjar file="${dist.temp}" />
+         <libraryjar>
+            <fileset dir="${jcontrol.profiles.jar.path}"
+               includes="${JControl.Profile.Classpath.BuiltIn(name)},
+                           ${JControl.Profile.Classpath.Standard(name)}" />
+         </libraryjar>
+
+         <!-- preserve all native method names and the names of their classes. -->
+         <keepclasseswithmembernames>
+            <method access="native" />
+         </keepclasseswithmembernames>
+         <keep access="public" type="class" name="**">
+            <constructor access="public" name="*" />
+            <method access="public" name="*" />
+            <field access="public" name="*" />
+         </keep>
+         <keep access="public" type="interface" name="**">
+            <method access="public" name="*" />
+            <field access="public" name="*" />
+         </keep>
+      </proguard>
+
+      <!-- remove and rename temporary files -->
+      <delete file="${ant.project.name}_${build.date}.jar" />
+      <move file="${dist.temp}" tofile="${ant.project.name}_${build.date}.jar" />
+   </target>
+   
+   <target name="dist" depends="dist-init,jar,docs" description="generate distribution">
+      <!-- copy everything into the distribution directory ${dist.target} -->
+      <copy todir="${dist.target}">
+         <fileset dir="." includes="${ant.project.name}_${build.date}.jar" />
+      </copy>
+   </target>
+   
+   <target name="dist-init" description="initialize distribution make process">
+      <!-- make distribution subdirectory if it is not already present -->
+      <mkdir dir="${target}" />
+      <mkdir dir="${bin}" />
+      <mkdir dir="${jar}" />
+      <mkdir dir="${dist.target}" />
+   </target>
+   
+   <target name="install" depends="jar-init" description="install jar to working dir">
+      <copy todir="${jcontrol.profiles.jar.path}/optional/" overwrite="true">
+         <fileset dir="." includes="${ant.project.name}_${build.date}.jar" />
+      </copy>
+   </target>
+   
+   <target name="clean" description="clean up">
+      <delete dir="${target}" />
+   </target>
+   
+</project>

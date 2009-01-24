@@ -1,0 +1,19 @@
+JControl/Viper TODO-Liste
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Legende:
+* abzuarbeitender Punkt
+$ zu behebender Bug
++ Einträger/Kommentator
+# Bearbeiter (immer nur einer, in Klammern: noch nicht begonnen)
+X abgearbeiteter Punkt
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Letzte Nummer: 0000
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Hier ein Wunsch von Herrn Euler (eigentlich eher was für BFT, aber Viper ist ja nicht ganz so
+weit davon weg ;-)
+  Bei der Arbeit am Zahleneditor ergaben sich folgende Wünsche bezüglich beim "TextInputField": 
+  - Cursor, der dann auch entsprechend positioniert werden kann. 
+    Ist hier jetzt noch nicht notwendig, aber zukünftig bei Texteingaben, 
+    welche als nächste programmiert werden soll. 
+  - Text rechtsbündig, zentriert anzeigen lassen. 
+    Bisher nur linksbündig möglich. oder ? 
