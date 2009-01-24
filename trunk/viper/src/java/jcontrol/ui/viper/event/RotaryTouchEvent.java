@@ -66,15 +66,9 @@ public class RotaryTouchEvent implements IEvent {
      * Creates a rotary touch event.
      * 
      * @param touchedSensorField the touched sensor field.
-     * @param rotaryState the rotary sensor state
-     * @param rotateDirection the rotate direction
-     * @see STATE_IDLE
-     * @see STATE_TOUCHED
-     * @see STATE_TOUCHED_MOVE
-     * @see STATE_SELECTED
-     * @see ROTATES_RIGHT
-     * @see ROTATES_NONE
-     * @see ROTATES_LEFT
+     * @param rotaryState the rotary sensor state (STATE_IDLE, STATE_TOUCHED, STATE_TOUCHED_MOVE,
+     *        STATE_SELECTED).
+     * @param rotaryDirection the rotate direction (ROTATES_RIGHT, ROTATES_NONE, ROTATES_LEFT).
      */
     public RotaryTouchEvent(int touchedSensorField, int rotaryState, int rotaryDirection) {
         m_touchedSensorField = touchedSensorField;
@@ -85,10 +79,7 @@ public class RotaryTouchEvent implements IEvent {
     /**
      * Returns the rotate direction of the sensor field.
      * 
-     * @return the rotate direction.
-     * @see ROTATES_RIGHT
-     * @see ROTATES_NONE
-     * @see ROTATES_LEFT
+     * @return the rotate direction (ROTATES_RIGHT, ROTATES_NONE, ROTATES_LEFT).
      */
     public int getRotaryDirection() {
         return m_rotaryDirection;
@@ -97,11 +88,7 @@ public class RotaryTouchEvent implements IEvent {
     /**
      * Returns the rotary touch state.
      * 
-     * @return the touch state.
-     * @see STATE_IDLE
-     * @see STATE_TOUCHED
-     * @see STATE_TOUCHED_MOVE
-     * @see STATE_SELECTED
+     * @return the touch state (STATE_IDLE, STATE_TOUCHED, STATE_TOUCHED_MOVE, STATE_SELECTED).
      */
     public int getRotaryTouchState() {
         return m_rotaryState;
