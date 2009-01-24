@@ -130,9 +130,7 @@ public class SevenSegmentMeter extends AbstractMeter {
     /**
      * Draw a new value
      * 
-     * @param segments The seven segments
-     * @param x The x coordinate
-     * @param y The y coordinate
+     * @param g the grahpic object.
      */
     protected void drawValue(Graphics g) {
         int decimals = m_dataProducer != null ? -m_dataProducer.getExponent() : 0;

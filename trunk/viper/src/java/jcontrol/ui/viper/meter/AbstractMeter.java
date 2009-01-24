@@ -54,7 +54,7 @@ public abstract class AbstractMeter extends Component implements DataConsumer {
 
     /**
      * @param value
-     * @return
+     * @return the count.
      */
     protected int log10(int value) {
         int count = value < 0 ? 1 : 0;

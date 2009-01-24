@@ -131,7 +131,7 @@ public class ListBox extends AbstractFocusComponent {
 
     /**
      * @param updown
-     * @return
+     * @return xxx
      */
     private int findNextOrPrev(boolean updown) {
         synchronized (m_items) {

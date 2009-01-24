@@ -156,7 +156,6 @@ public class Frame extends Component implements IFrame, IKeyListener, IRotaryTou
      * <code>setBounds()</code>.
      * </p>
      * 
-     * @param graphics An instance of a custom display adapter.<br>
      * @param rotaryTouchDevice An instance of a rotary touch device, e.g.
      *        <code>jcontrol.io.MPR083</code>, or <code>null</code>.
      */
@@ -270,7 +269,7 @@ public class Frame extends Component implements IFrame, IKeyListener, IRotaryTou
     /**
      * @param container
      * @param event
-     * @return
+     * @return xxx
      */
     public int onEvent(IContainer container, IEvent event) {
         // Key events
@@ -484,7 +483,7 @@ public class Frame extends Component implements IFrame, IKeyListener, IRotaryTou
     }
 
     /**
-     * @return
+     * @return xxx
      */
     private boolean processEventQueue() {
         // work event queue
@@ -549,7 +548,7 @@ public class Frame extends Component implements IFrame, IKeyListener, IRotaryTou
      * Processes the rotary touch events
      * 
      * @param rotaryTouchType
-     * @return
+     * @return xxx
      * @throws IOException if rotary touch sensor is not working
      */
     public int processRotaryTouchEvents(int rotaryTouchType) throws IOException {
@@ -661,7 +660,7 @@ public class Frame extends Component implements IFrame, IKeyListener, IRotaryTou
      * Processes the touch events.
      * 
      * @param touchType
-     * @return
+     * @return xxx
      */
     private int processTouchEvents(int touchType) {
         if (pointingDevice == null) return 0;

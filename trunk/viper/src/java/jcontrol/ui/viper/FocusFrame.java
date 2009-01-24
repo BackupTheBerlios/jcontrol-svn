@@ -670,7 +670,7 @@ public class FocusFrame extends Component implements IFrame, IKeyListener {
     }
 
     /**
-     * @return
+     * @return the result.
      */
     private boolean workEventQueue() {
         // work event queue
@@ -688,7 +688,7 @@ public class FocusFrame extends Component implements IFrame, IKeyListener {
 
     /**
      * @param key
-     * @return
+     * @return the key
      */
     private int workKeyEvents(int key) {
         if (keyboard == null) return -1;

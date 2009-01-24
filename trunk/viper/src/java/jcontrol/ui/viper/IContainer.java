@@ -49,13 +49,14 @@ public interface IContainer {
      * Marks all components inside this container that intersect the given bounds to be repainted.
      * This method should not be used by any application.
      * 
-     * @param Object source the calling object that must be a child of this container or null
+     * @param source the calling object that must be a child of this container or null
      * @param x
      * @param y
      * @param width
      * @param height
      * @param state the state to set
-     * @return
+     * @param b
+     * @return xxx
      */
     boolean setDirty(Object source, int x, int y, int width, int height, int state, boolean b);
 }

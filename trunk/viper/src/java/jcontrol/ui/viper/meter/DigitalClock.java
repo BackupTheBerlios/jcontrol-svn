@@ -27,8 +27,6 @@ import jcontrol.ui.viper.Component;
  * </p>
  * 
  * @author Marcus Timmermann
- * @see jcontrol.system.Time
- * @see jcontrol.system.RTC
  * @since Viper 1.0
  * @version $Revision$
  */

@@ -143,7 +143,7 @@ public class TypeWriter extends AbstractFocusComponent {
     /**
      * Returns the typed text.
      * 
-     * @return
+     * @return the typed text.
      */
     public String getText() {
         return text;
