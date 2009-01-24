@@ -118,26 +118,18 @@
    
    <target name="docs" depends="compile,docs-init" description="generate javadoc files">
       <!-- first, delete all existing documents -->
-      <delete dir="${doc}/api" />
+      <delete dir="${doc}" />
       <!-- generate "stand alone" JavaDocs for this framework -->
       <javadoc packagenames="${package.name}.*" classpath="${bin}"
-         destdir="${doc}/api" encoding="${build.encoding}" access="package"
-         author="true" version="true" use="false" nodeprecated="true"
-         nodeprecatedlist="true" splitindex="true" windowtitle="${package.title}">
+         destdir="${doc}" encoding="${build.encoding}" access="package"
+         author="true" version="true" use="false" nodeprecated="true" docencoding="${build.docencoding}"
+         nodeprecatedlist="true" splitindex="true" windowtitle="${package.title}" failonerror="false" >
          <fileset dir="${src}">
             <include name="**/*.java" />
          </fileset>
          <doctitle>
             <![CDATA[<h2>${package.title}</h2>]]>
          </doctitle>
-         <bootclasspath>
-            <pathelement location="${bin}" />
-            <filelist dir="${jcontrol.profiles.jar.path}"
-               files="${JControl.Profile.Classpath.BuiltIn(name)}
-                         ${JControl.Profile.Classpath.Standard(name)}" />
-         </bootclasspath>
-         <link offline="true" href="http://www.jcontrol.org/html/javadoc/"
-            packagelistLoc="${home}/../jcontrol.org/html/javadoc/" />
       </javadoc>
    </target>
    
