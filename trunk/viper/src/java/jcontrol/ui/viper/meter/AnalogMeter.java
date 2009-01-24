@@ -78,10 +78,10 @@ public class AnalogMeter extends AbstractMeter {
      * @param width The width
      * @param height The height
      * @param openAngle An angle between 0 and 180 degrees. Default value is 180 degrees.
+     * @param dials Number of dial lines
      * @param style Possible values are <code>STYLE_ORIENTATION_LEFT</code>,
      *        <code>STYLE_ORIENTATION_CENTER</code> and <code>STYLE_ORIENTATION_RIGHT</code> or
      *        <code>STYLE_SHOW_NUMERIC_VALUE</code>.
-     * @param dials Number of dial lines
      */
     public AnalogMeter(int x, int y, int width, int height, int openAngle, int dials, int style) {
         this.x = x;
