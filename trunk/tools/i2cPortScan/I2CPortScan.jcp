@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jcontrol version="1.0">
   <project name="I2CPortScan">
-    <profile name="JControl/SmartDisplay2/Standard" revision="4.0" build="20080814"/>
-    <workspace>
-      <file dir="../../../../bin/eclipse/I/" name="I.jcw"/>
-    </workspace>
+    <profile name="Java-Control-Unit JCU 10" revision="2.1.0" build="20040805"/>
+    <workspace name="I2CPortScan.jcw"/>
     <main class="I2CPortScan"/>
     <files>
       <layer domain="java">
